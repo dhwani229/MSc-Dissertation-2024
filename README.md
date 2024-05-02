@@ -51,3 +51,7 @@ I have found 3 datasets:
 * rm_fqc.sh
   * Removed fastqc output files once the quality checks were done
 
+* rm_fqscreen.sh
+   * Removal of fastq screen output files once analysed
+   * All samples were directional
+
