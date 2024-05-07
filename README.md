@@ -24,12 +24,6 @@ I have found 3 datasets:
 
 * fq.sh
   * Job script to convert the downloaded .sra files into .fastq
-  * Run time max was set to 48h and as a result, not all samples were converted, therefore I had to run another script to convert the rest of the samples. The rest of them were done in fq2.sh
-  * Only worked up to sample SRR6350430
-
-* fq2.sh
-  * Job script to convert the rest of the .sra files into .fastq
-  * The samples that weren't converted were from SRR6350431 to SRR6435636
 
 * rm_sra.sh
   * Job script to remove the .sra files from all the directories to save space once the .fastq conversion was complete
@@ -54,4 +48,10 @@ I have found 3 datasets:
 * rm_fqscreen.sh
    * Removal of fastq screen output files once analysed
    * All samples were directional
+ 
+ * trim.sh
+   * Trimming of fastq files using 'Trim Galore!'
+   * Used additional option '--fastqc' to produce quality reports
+   * Also removed the original fastq IF trimming was successful and preserved the files if trimming failed. This was done to save space
+   * Manually checked the fastqc output files to make sure the trimmed files were appropriate for use in the next stage
 
