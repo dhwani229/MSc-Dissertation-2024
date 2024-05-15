@@ -15,8 +15,8 @@ I have found 3 datasets:
 * RRBS
 * EPIC microarray
 
-## PRE-PROCESSING
-### RRBS job scripts explained
+# PRE-PROCESSING
+## RRBS job scripts explained
 
 * js.sh
   * Job script for downloading the RRBS data from NCBI SRA using the software SRATOOLS
@@ -65,3 +65,18 @@ I have found 3 datasets:
 * methylation.sh
   * methylation calling using bismark methylation extractor
   * provided coverage files specific to CpG coverage
+ 
+
+### ***rest of rrbs jobscripts ***
+
+### Processing of duplicate RRBS samples 
+
+Some of the raw RRBS SRA data corresponded to the same samples (contained under the sample IDs beginning with 'GSM') and to process these, I decided to combine them into one fq file since there was no specific explanation on the article about the reason for there being duplicate samples present. Therefore, I assumed that these were just bad sequencing runs and decided to combine them.
+
+* download.sh
+  * Making the directories, called GSMxxx, where the corresponding SRA runs will be stored 
+  * Creating a text file that contains the GSM ID and its corresponding SRA runs
+  * Using 'prefetch' from sratools to download the required SRA files
+
+* fq.sh
+  * Converting the .sra files to .fq 
