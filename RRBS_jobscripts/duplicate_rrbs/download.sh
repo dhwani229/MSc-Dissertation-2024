@@ -1,0 +1,55 @@
+# create GSM directories 
+
+mkdir GSM2910002 GSM2910003 GSM2910004 GSM2910007 GSM2877359 GSM2877362 GSM2877445 GSM2877490 GSM2877493 GSM2877501 GSM2877503 GSM2877507 GSM2877508 GSM2877517
+
+# download all the corresponding sra files 
+
+#!/bin/bash
+#$ -cwd
+#$ -j y
+#$ -pe smp 1
+#$ -l h_rt=240:00:00
+#$ -l h_vmem=20G
+#$ -m bea
+module load sratools/2.10.8
+
+BASE_DIR=/data/scratch/bt22912/duplicate_rrbs
+
+# Creating text file with all the samples and the corresponding SRR IDs
+cat <<EOF > samples_srr.txt
+GSM2910002 SRR6435618 SRR6435619
+GSM2910003 SRR6435620 SRR6435621
+GSM2910004 SRR6435622 SRR6435623
+GSM2910007 SRR6435626 SRR6435627
+GSM2877359 SRR6350256 SRR6350257
+GSM2877362 SRR6350260 SRR6350261
+GSM2877445 SRR6350345 SRR6350346
+GSM2877490 SRR6350392 SRR6350393
+GSM2877493 SRR6350396 SRR6350397
+GSM2877501 SRR6350405 SRR6350406
+GSM2877503 SRR6350408 SRR6350409
+GSM2877507 SRR6350413 SRR6350414
+GSM2877508 SRR6350415 SRR6350416 SRR6350417
+GSM2877517 SRR6350426 SRR6350427
+EOF
+
+
+while read -r sample_id srr_ids
+do   
+    SAMPLE_DIR=$BASE_DIR/$sample_id
+    
+    if [ ! -d $SAMPLE_DIR ]; then
+        
+        mkdir -p $SAMPLE_DIR
+    fi
+
+   
+    read -a ids <<< $srr_ids
+    
+    for srr_id in ${ids[@]}
+    do
+        
+        prefetch -O $SAMPLE_DIR $srr_id
+
+    done
+done < samples_srr.txt
