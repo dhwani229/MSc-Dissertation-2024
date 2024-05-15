@@ -54,4 +54,14 @@ I have found 3 datasets:
    * Used additional option '--fastqc' to produce quality reports
    * Also removed the original fastq IF trimming was successful and preserved the files if trimming failed. This was done to save space
    * Manually checked the fastqc output files to make sure the trimmed files were appropriate for use in the next stage
+  
+ * align.sh
+   * Alignment, using Bismark, to a bisulfite-converted hg38 reference genome (bisulfite conversion done by bismark)
 
+* efficiency.sh
+  * obtaining methylation efficiency from txt report from the alignment and putting all of them into one txt file.
+  * anything below 50% efficiency = bad and was discarded
+
+* methylation.sh
+  * methylation calling using bismark methylation extractor
+  * provided coverage files specific to CpG coverage
