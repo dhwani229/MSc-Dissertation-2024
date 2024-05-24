@@ -1,4 +1,5 @@
-# healthy vs malignant processing 
+#  making the dataframe of all the coverage files in R for healthy vs malignant samples
+
 
 library(methylKit)
 file_path <- "/data/scratch/bt22912/prac/healthyvmalignant.csv"
