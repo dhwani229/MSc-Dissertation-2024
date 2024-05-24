@@ -34,7 +34,7 @@ myobj_normalised <- normalizeCoverage(filtered_myobj)
 
 print(myobj_normalised)
 
-united_df <- unite(myobj_normalised)
+united_df <- unite(myobj_normalised, min.per.group=3L)
 print(united_df)
 
 percentage <- percMethylation(united_df, rowids=TRUE)
