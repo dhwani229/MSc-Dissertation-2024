@@ -7,13 +7,13 @@ This project aims to investigate this effect using publicly available epigenomic
 ### Methodology
 * Search in public databases for epigenomic, genomic, and transcriptomic data from cohorts of two distinct disease states (healthy vs cancer)
 * Preprocessing of raw data in order to attain all relevant features (methylation levels, SNPs, CNVs, gene expression levels) per individual
-* Missing value imputation based on multiple methodologies (kNN, random forest, neural networks etc) Feature selection and machine learning predictor algorithms development
+* Missing value imputation based on multiple methodologies (kNN, random forest etc) Feature selection and machine learning predictor algorithms development
 * Assessment of the optimal imputation method based on the performance of the machine learning predictor algorithms.
 
-I have found 3 datasets: 
+I have found 2 datasets: 
 * WGBS
 * RRBS
-* EPIC microarray
+
 
 # PRE-PROCESSING
 ## RRBS job scripts explained
