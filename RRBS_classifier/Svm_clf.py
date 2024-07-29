@@ -1,3 +1,5 @@
+# CLASSIFIER USING SVM. SAME CODE APPLIED FOR ALL IMPUTED DATASETS BUT THIS EXAMPLE USES MEAN IMPUTED DATASET ONLY. 
+
 import os
 import pandas as pd
 import numpy as np
@@ -12,6 +14,7 @@ from sklearn import metrics
 
 os.chdir('/data/home/bt22912/files_needed/imputation/hb/mean') # This is where my imputed datasets were stored. 'mean' referred to where my mean imputed datasets were stored. this is modified according to which imputed dataset im using
 
+# defining samples - benign samples for this eg. but malignant samples used in the HM classifier  
 healthy_samples = ['SRR6350325',
 'SRR6350326',
 'SRR6350327',
@@ -188,7 +191,7 @@ print(f"Optimal C: {best_params['svm__C']}")
 best_feature_selector = best_estimator.named_steps['feature_selection']
 selected_feature_indices = best_feature_selector.get_support(indices=True)
 
-feature_names = train_data.columns.values  # Column names (chromosomal positions)
+feature_names = train_data.columns.values  # Column names (DMPs)
 
 selected_feature_names = [feature_names[i] for i in selected_feature_indices]
 
