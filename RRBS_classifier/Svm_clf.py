@@ -114,7 +114,7 @@ y_test_pred_proba = best_estimator.named_steps['svm'].predict_proba(X_test_selec
 
 accuracy = accuracy_score(y_test, y_test_pred)
 conf_matrix = confusion_matrix(y_test, y_test_pred)
-class_report = classification_report(y_test, y_test_pred, target_names=["Healthy", "Benign"])
+class_report = classification_report(y_test, y_test_pred, target_names=["Healthy", "Benign"]) # LABEL CHANGE TO 'MALIGNANT' ON MALIGNANT CLASSIFIER 
 
 tn, fp, fn, tp = conf_matrix.ravel()
 sensitivity = tp / (tp + fn)
