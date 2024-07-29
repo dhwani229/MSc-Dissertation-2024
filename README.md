@@ -6,11 +6,11 @@ This project aims to investigate this effect using publicly available epigenomic
 
 ### Methodology
 * Search in public databases for epigenomic, genomic, and transcriptomic data from cohorts of two distinct disease states (healthy vs cancer)
-* Preprocessing of raw data in order to attain all relevant features (methylation levels, SNPs, CNVs, gene expression levels) per individual
+* Preprocessing of raw data in order to attain all relevant features per individual
 * Missing value imputation based on multiple methodologies (kNN, random forest etc) Feature selection and machine learning predictor algorithms development
 * Assessment of the optimal imputation method based on the performance of the machine learning predictor algorithms.
 
-I have found 2 datasets: 
+2 datasets were acquired: 
 * WGBS
 * RRBS
 
@@ -20,7 +20,7 @@ I have found 2 datasets:
 
 * js.sh
   * Job script for downloading the RRBS data from NCBI SRA using the software SRATOOLS
-  * To download all samples in the dataset (beginning with SRR), I downloaded the txt file containing all sample names and made a code that looped through this txt file to obtain all samples from the dataset
+  * To download all samples in the dataset (beginning with SRR), a txt file containing all sample names was downloaded and a code that looped through this txt file to obtain all samples from the dataset was made.
 
 * fq.sh
   * Job script to convert the downloaded .sra files into .fastq
@@ -33,7 +33,7 @@ I have found 2 datasets:
   * The output files were all checked manually
 
 * paired_fqscreen.sh
-  * Once the samples were checked, I performed FastQ screen to determine the directionality of the samples
+  * Once the samples were checked, FastQ screen was used to determine the directionality of the samples
   * Samples were split into paired and unpaired
   * Paired samples: SRR6350255-SRR6350383, SRR6435611, SRR6435613, SRR6435615, SRR6435618
   * FastQ screen was downloaded via git clone and configured using hg38 Bisulfite converted genome (hg38 downloaded from: https://www.ncbi.nlm.nih.gov/genome/guide/human/ with chromosomal annotations and Bisulfite conversion done by Bismark)
@@ -67,11 +67,9 @@ I have found 2 datasets:
   * provided coverage files specific to CpG coverage
  
 
-### ***rest of rrbs jobscripts ***
-
 ### Processing of duplicate RRBS samples 
 
-Some of the raw RRBS SRA data corresponded to the same samples (contained under the sample IDs beginning with 'GSM') and to process these, I decided to combine them into one fq file since there was no specific explanation on the article about the reason for there being duplicate samples present. Therefore, I assumed that these were just bad sequencing runs and decided to combine them.
+Some of the raw RRBS SRA data corresponded to the same samples (contained under the sample IDs beginning with 'GSM') and to process these, they were combined them into one fq file since there was no specific explanation on the article about the reason for there being duplicate samples present. Therefore, I assumed that these were just bad sequencing runs and decided to combine them.
 
 * download.sh
   * Making the directories, called GSMxxx, where the corresponding SRA runs will be stored 
@@ -79,4 +77,6 @@ Some of the raw RRBS SRA data corresponded to the same samples (contained under 
   * Using 'prefetch' from sratools to download the required SRA files
 
 * fq.sh
-  * Converting the .sra files to .fq 
+  * Converting the .sra files to .fq
+
+using the 'cat' command on the required samples, they were concatenated and then from this point forward, the same job scripts as the regular RRBS were used. 
