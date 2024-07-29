@@ -42,13 +42,13 @@ labels_val = assign_labels(val_data, healthy_samples, benign_samples)
 labels_test = assign_labels(test_data, healthy_samples, benign_samples)
 
 # extract features and target variables
-X_train = train_data.iloc[:, 1:].T.values  # Exclude the first column (positions) and transpose
+X_train = train_data.iloc[:, 1:].T.values  
 y_train = pd.Series(labels_train).astype(int)
 
-X_val = val_data.iloc[:, 1:].T.values  # Exclude the first column (positions) and transpose
+X_val = val_data.iloc[:, 1:].T.values 
 y_val = pd.Series(labels_val).astype(int)
 
-X_test = test_data.iloc[:, 1:].T.values  # Exclude the first column (positions) and transpose
+X_test = test_data.iloc[:, 1:].T.values  
 y_test = pd.Series(labels_test).astype(int)
 
 # define a range of features to select and n_estimators for grid search
