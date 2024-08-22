@@ -13,7 +13,7 @@ def introduce_missing_values(df, missing_rate=0.3, seed=42):
     df_missing[mask] = np.nan
     return df_missing, mask
 
-train_df = pd.read_csv('train_hb.csv')
+train_df = pd.read_csv('train_hb.csv') # would be train_hm.csv for the HM data
 
 # Separate the feature columns from the 'Unnamed: 0' column
 train_features = train_df.drop(columns=['Unnamed: 0'])
