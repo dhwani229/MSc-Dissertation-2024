@@ -1,3 +1,6 @@
+# RMSE for median imputation. Only calculated on training data. missing_rate corresponds to % of missingness in filtered dataframe. 
+# This e.g. is for HB, same code was used for HM but missing rate in HM = 20% and in HB = 30%
+
 import pandas as pd
 import numpy as np
 from sklearn.impute import SimpleImputer
