@@ -80,3 +80,7 @@ Some of the raw RRBS SRA data corresponded to the same samples (contained under 
   * Converting the .sra files to .fq
 
 using the 'cat' command on the required samples, they were concatenated and then from this point forward, the same job scripts as the regular RRBS were used. 
+
+## WGBS job scripts explained
+
+WGBS samples were processed in smaller batches of 10 samples due to storage limitations. The processing was similar to the RRBS samples but instead of directionality determination, WGBS samples needed to be deduplicated before methylation extraction. 
